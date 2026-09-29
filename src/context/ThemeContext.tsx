@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 
 type Theme = 'light' | 'dark';
 
@@ -13,15 +13,12 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [theme, setThemeState] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('skylarr-theme') as Theme | null;
-      if (stored === 'light' || stored === 'dark') {
-        return stored;
-      }
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      const stored = localStorage.getItem('skylarr-theme-mode') as Theme | null;
+      if (stored === 'dark') {
         return 'dark';
       }
     }
-    return 'light';
+    return 'light'; // White mode by default
   });
 
   useEffect(() => {
@@ -33,7 +30,7 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       root.classList.remove('dark');
       root.style.colorScheme = 'light';
     }
-    localStorage.setItem('skylarr-theme', theme);
+    localStorage.setItem('skylarr-theme-mode', theme);
   }, [theme]);
 
   const toggleTheme = () => {
