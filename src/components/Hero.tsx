@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ShieldCheck, Award, ArrowRight, Play, CheckCircle2, MapPin, Sparkles, Building2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Badge } from './ui/badge';
@@ -30,7 +30,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToForm, onOpenVideo }) => {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-5xl font-extrabold tracking-tight text-[#064E3B] leading-[1.15] mb-6">
-              Build Your Own Pharma Business with <span className="underline decoration-[#F8E7C9] decoration-wavy decoration-2">Guaranteed Monopoly</span> Territory Rights.
+              Build Your Own Pharma Business with <span className="text-[#08634B]">Guaranteed Monopoly</span> Territory Rights.
             </h1>
 
             {/* Sub-headline */}
@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ onScrollToForm, onOpenVideo }) => {
                 "100% District Monopoly Rights",
                 "WHO-GMP Certified Quality Formulations",
                 "Complimentary Detailing Bag & Visual Aid",
-                "Guaranteed 24â€“48h Dispatch SLA"
+                "Guaranteed 24-48h Dispatch SLA"
               ].map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2 text-sm text-[#17231F] font-medium">
                   <CheckCircle2 className="w-4 h-4 text-[#19734D] shrink-0" />
